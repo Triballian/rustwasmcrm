@@ -1,31 +1,34 @@
 use chrono::prelude::*;
 
 struct Customer {
-  id: String,
-  address: Address,
-  firstname: String,
-  secondname: String,
-  phonenumber: String,
-  email: String,
-  ebill: Vec<String>,
-  date_created: DateTime<Utc>,
-  notes: String,
-  created_by: String,
+    id: String,
+    address: Address,
+
+    firstname: String,
+    lastname: String,
+    phonenumber: String,
+    email: String,
+    ebillrange: Vec<String>,
+    date_created: DateTime<Utc>,
+    created_by: String,
+    notes: String,
 }
 impl Customer {
- fn new(id, address, firstname, secondname, email, phone, ebillrange, date_created, created_by) {
-   Self {
-    id,
-    address,
-    firstname,
-    secondname,
-    email,
-    phone,
-    ebillrange,
-    date_created,
-    created_by,
-   }   
- }
+ fn new(id, address, firstname, lastname, phonenumber, email, ebillrange, date_created, created_by, notes) {
+    Self {
+      id,
+      address,
+      firstname,
+      lastname,
+      phonenumber,
+      email,
+      
+      ebillrange,
+      date_created,
+      created_by,
+      notes,
+    }   
+  }
 }
 
 struct Address{
@@ -47,10 +50,11 @@ impl Address {
 
 fn main(){
   
- 
-let street = String::from("564 applebee st");
-let city = String::from("huntsville");
-let zip = String::from("77396");
+let id = String::from("45672d"); 
+let address = Address::new(String::from("564 applebee st"),String::from("huntsville"),String::from("77396"));
+// = String::from("564 applebee st");
+// let city = String::from("huntsville");
+// let zip = String::from("77396");
 let firstname = String::from("Andy");
 let lastname = String::from("Woodsmith");
 let phone = String::from("225-125-421");
@@ -70,16 +74,16 @@ let mut id: String;
    let new_customer = Customer::new(
       
       id,
-      Address::new(city, street, zip),
+      Address::new(street, city, zip),
       firstname,
-      secondname,
+      lastname,
       email,
       phone,
       ebillrange,
-      notes,
- 
       date_created: DateTime<Utc>,
       created_by,
+      notes,
+     
       
    );
 }
