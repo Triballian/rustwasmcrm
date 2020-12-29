@@ -14,7 +14,8 @@ struct Customer {
     notes: String,
 }
 impl Customer {
- fn new(id, address, firstname, lastname, phonenumber, email, ebillrange, date_created, created_by, notes) {
+  fn new(id: String, address: Address, firstname: String, lastname: String, phonenumber: String, 
+    email: String, ebillrange: Vec<String>, date_created: DateTime<Utc>, created_by: String, notes: String) -> Self {
     Self {
       id,
       address,
